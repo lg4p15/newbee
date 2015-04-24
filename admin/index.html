@@ -5,18 +5,11 @@
 		<title>新蜂工作室</title>
 	</head>
 	<body>
-		<a href='../index.html'>新蜂工作室</a>
-		<ul>
-			<a href='../about/intro.html'>关于工作室</a><br/>
-			<a href='../index.html'>新蜂后花园</a><br/>
-			<a href='../index.html'>加入我们</a><br/>
-		</ul>
-		<form action='login.php' method='post'>
-			<p>用户名</p>
-			<input name='name'/><br/>
-			<p>密码</p>
-			<input name='pwd'/><br/>
-			<input type="submit" value="登录"/>
-		</form>
+		<iframe src='../header.html' width='100%' frameborder=0 scrolling='no' 
+			onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+		</iframe>
+		<iframe src='login.php' width='100%' frameborder=0 scrolling='no' 
+			onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+		</iframe>
 	</body>
 </html>
