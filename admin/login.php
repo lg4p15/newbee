@@ -1,4 +1,5 @@
 <?php
+header("Content-type: text/html; charset=utf-8");
 $user='treenewbee';
 $pwd='shuxinfeng';
 $con = mysql_connect('localhost', $user, $pwd) or die("<script>window.location='error.html'</script>");	
@@ -21,7 +22,7 @@ if(isset($_POST['name'])){
 }else{
 	$ck=$_COOKIE['admin'];
 //这里也是要cookie加密
-	if(!empty($ck)&&!ereg("^[_0-9a-zA-Z]+$",$ck))die("<script>window.location='ban.html'</script>");
+	if(!ereg("^[_0-9a-zA-Z]+$",$ck))die("<script>window.location='ban.html'</script>");
 	$res=mysql_query("select name from su where name='".$ck."' limit 1;")or die("<script>window.location='error.html'</script>");
 	if(mysql_fetch_array($res)){
 		echo "success";
