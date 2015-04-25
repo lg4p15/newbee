@@ -30,7 +30,7 @@ mysql_select_db('tree_newbee') or die("<script>window.location='error.html'</scr
 	if(!ereg("^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3}$",$mail))die("<script>window.location='email.html'</script>");
 	if(!preg_match("/^[\x{4e00}-\x{9fa5}A-Za-z0-9_]+$/u",$dep))die("<script>window.location='ban.html'</script>");
 	$str="insert into wantjoin (name,sex,stu_id,institute,phone_num,mail,dep,intro) values('$name','$sex','$stuid','$ins','$phone','$mail','$dep',$intro)";
-	echo $str;
 	mysql_query($str)or die("<script>window.location='error.html'</script>");
 	mysql_close($con);
+	echo "<script>window.location='success.html'</script>"
 ?>
