@@ -14,6 +14,7 @@ $user='treenewbee';
 $pwd='shuxinfeng';
 $con = mysql_connect('localhost', $user, $pwd) or die("<script>window.location='error.html'</script>");	
 mysql_select_db('tree_newbee') or die("<script>window.location='error.html'</script>");
+mysql_query("set character set 'utf8'");
 	$name = $_POST['name'];
 	$sex=$_POST['sex'];
 	$stuid=$_POST['stuid'];
