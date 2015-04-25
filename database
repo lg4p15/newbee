@@ -1,0 +1,17 @@
+user
+	id # 独一无二
+	pwd #需要经过加密
+
+	name#真实姓名
+	sex#性别
+	stuid#学号
+	ins#学院
+	phone#电话号码
+	mail#邮箱
+	depjob#部门及工作
+	intro#自我介绍
+
+	rights#权限管理{}
+
+event
+blog

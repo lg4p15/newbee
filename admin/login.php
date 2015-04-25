@@ -13,7 +13,7 @@ if(isset($_POST['name'])){
 	if(!ereg("^[_0-9a-zA-Z]+$",$name))die("<script>window.location='ban.html'</script>");
 	if(!ereg("^[_0-9a-zA-Z]+$",$pwd))die("<script>window.location='ban.html'</script>");
 //这里还需要对密码进行加密，明文存储有风险
-	$res=mysql_query("select name from su where name = '$name' and pwd= '$pwd' limit 1")or die("<script>window.location='error.html'</script>");
+	$res=mysql_query("select id from user where id = '$name' and pwd= '$pwd' and find_in_set('sadmin',rights)>0  limit 1")or die("<script>window.location='error.html'</script>");
 	if(mysql_fetch_array($res)){
 	setcookie("admin", $user, time()+3600);
 	echo "<script target='_top'>window.location='success.html'</script>";
@@ -24,11 +24,11 @@ if(isset($_POST['name'])){
 	$ck=$_COOKIE['admin'];
 //这里也是要cookie加密
 	if(!empty($ck)&&!ereg("^[_0-9a-zA-Z]+$",$ck))die("<script>window.location='ban.html'</script>");
-	$res=mysql_query("select name from su where name='".$ck."' limit 1;")or die("<script>window.location='error.html'</script>");
+	$res=mysql_query("select name from user where id='".$ck."' and find_in_set('sadmin',rights)>0 limit 1;")or die("<script>window.location='error.html'</script>");
 	if(mysql_fetch_array($res)){
-		$res=mysql_query("select * from wantjoin")or die("<script>window.location='error.html'</script>");
+		$res=mysql_query("select * from user where find_in_set('wantjoin',rights)>0")or die("<script>window.location='error.html'</script>");
 		while( $row = mysql_fetch_array($res) ){
-			echo "姓名:\t".$row['name']."\t性别:\t".$row['sex']."\t学号:\t".$row['stu_id']."\t学院:\t".$row['institute']."\t手机号码:\t".$row['phone_num']."\t邮箱:\t".$row['mail']."\t意向部门:\t".$row['dep']."\t自我介绍:\t".$row['intro']."<br />";
+			echo "姓名:\t".$row['name']."\t性别:\t".$row['sex']."\t学号:\t".$row['stuid']."\t学院:\t".$row['ins']."\t手机号码:\t".$row['phone']."\t邮箱:\t".$row['mail']."\t意向部门:\t".$row['depjob']."\t自我介绍:\t".$row['intro']."<br />";
 		}
 	}else{
 	echo "<script>window.location='login.html'</script>";
