@@ -30,7 +30,7 @@ if($con = mysql_connect('localhost', $user, $pwd)){
 			else{
 				if($res=mysql_query("select id from user where id='".$ck."' limit 1;")){
 					if(mysql_fetch_array($res)){
-						echo "<script>window.location='lguser.html'</script>";
+						echo "<script>window.location='lguser.html?u=$ck'</script>";
 					}else{
 						echo "<script>window.location='user.html'</script>";
 					}
