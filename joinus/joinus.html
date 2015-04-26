@@ -2,13 +2,18 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>新蜂工作室</title>
+		<title>加入我们</title>
+		<script src='../js/html_get_cookie.js'></script>
 	</head>
 	<body>
 		<iframe src='../header.html' width='100%' frameborder=0 scrolling='no' 
 			onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
 		</iframe>
-		<form action='joinus.php' method='post'>
+		<iframe src='../user.php' width='100%' frameborder=0 scrolling='no' 
+			onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+		</iframe>
+		<p id='nologin'>请先登录</p>
+		<form id='msg' action='joinus.php' method='post'>
 			<p>姓名</p>
 			<input name='name'/><br/>
 			<p>性别</p>
@@ -27,5 +32,6 @@
 			<input name='intro'/><br/>
 			<input type="submit" value="加入"/>
 		</form>
+		<script src='js/joinus.js'></script>
 	</body>
 </html>

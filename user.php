@@ -26,7 +26,10 @@ if($con = mysql_connect('localhost', $user, $pwd)){
 		}else{
 			$ck=$_COOKIE['user'];
 //这里也是要cookie加密
-			if(!empty($ck)&&!ereg("^[_0-9a-zA-Z]+$",$ck)) echo "<script>window.location='msg.html?ctt=非法的用户信息rl=login.html'</script>";
+			if(!empty($ck)&&!ereg("^[_0-9a-zA-Z]+$",$ck)){
+				setcookie("user", "",time());
+				echo "<script>window.location='user.html'</script>";
+			}
 			else{
 				if($res=mysql_query("select id from user where id='".$ck."' limit 1;")){
 					if(mysql_fetch_array($res)){
