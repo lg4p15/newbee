@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>写博客</title>
+		<script src='../js/html_get_cookie.js'></script>
+	</head>
+	<body>
+		<iframe src='../header.html' width='100%' frameborder=0 scrolling='no' 
+			onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+		</iframe>
+		<iframe src='../user.php' width='100%' frameborder=0 scrolling='no' 
+			onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+		</iframe>
+		<p id='nologin'>请先登录</p>
+		<form id='content' action='new.php' method='post'>
+			<textarea ></textarea><br/>
+			<input type="submit" value="提交"/>
+		</form>
+		<script src='js/new.js'></script>
+	</body>
+</html>
